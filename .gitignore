@@ -1,0 +1,41 @@
+.vagrant
+.idea
+# Logs
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Coverage directory used by tools like istanbul
+coverage
+
+# node-waf configuration
+.lock-wscript
+
+# Dependency directory
+node_modules
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+.DS_Store
+.svn
+
+package-lock.json
+
+yarn*
+*.swp
+
+# vagrant file
+v8-compile-cache-0
+
+# vscode user settings
+
+vscode
+.vscode

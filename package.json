@@ -1,0 +1,22 @@
+{
+  "name": "dandelion-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yukiyang0729/dandelion-server.git"
+  },
+  "author": "yuki.yang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yukiyang0729/dandelion-server/issues"
+  },
+  "homepage": "https://github.com/yukiyang0729/dandelion-server#readme",
+  "dependencies": {
+    "koa2": "^2.0.0-alpha.7"
+  }
+}
