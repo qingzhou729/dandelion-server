@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/yukiyang0729/dandelion-server#readme",
   "dependencies": {
-    "koa2": "^2.0.0-alpha.7"
+    "koa": "^2.6.2",
+    "koa-router": "^7.4.0",
+    "koa2": "^2.0.0-alpha.7",
+    "mysql": "^2.16.0"
   }
 }
