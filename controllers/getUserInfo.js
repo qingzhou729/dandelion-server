@@ -1,10 +1,17 @@
-const { query } = require('../common/mysql');
-async function getData() {
-    let sql = 'SELECT * FROM user_info';
-    let dataList = await query(sql);
-    return dataList;
-}
+
+const UserModel = require('../model/UserModel');
+const userModel = new UserModel();
+
+async function getUserInfo(ctx, next) {
+    let data = await userModel.getData();
+    ctx.body = {
+        mes: 'ok',
+        data,
+        success: true,
+    };
+};
+
 
 module.exports = {
-    getData,
+    getUserInfo,
 };
