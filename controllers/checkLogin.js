@@ -1,7 +1,7 @@
 /*
  * @Date: 2019-01-30 20:12:21
  * @LastEditors: yuxue.yang
- * @LastEditTime: 2019-01-30 20:38:55
+ * @LastEditTime: 2019-01-30 21:40:02
  */
 
 const UserModel = require('../model/UserModel');
@@ -19,16 +19,15 @@ async function checkLogin(ctx, next) {
     if (!redisData) {
         console.log('SESSIONID已经过期，去登录吧~');
     }
-
-    // 拿到用户uid，处理业务逻辑
-    const uid = redisData.uid;
-    
-    console.log();
-    ctx.body = {
-        mes: '这个用户登录了',
-        data: uid,
-        success: true,
-    };
+    if (redisData && redisData.uid) {
+        // 拿到用户uid，处理业务逻辑
+        const uid = redisData.uid;
+        ctx.body = {
+            mes: '这个用户登录了',
+            data: uid,
+            success: true,
+        };
+    }
 };
 
 
