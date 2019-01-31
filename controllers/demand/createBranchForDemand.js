@@ -1,20 +1,11 @@
-const cp = require('child_process'); 
 const shell = require('shelljs');
-async function createGitBranch() {
-    return new Promise((resolve, reject) => {
-        shell.sh('../../shell/createGitBranch.sh',  (err, result) => {
-            console.log(err)
-            console.log(result)
-            resolve(result);
-        });
-        
-    })
-}
 
 async function createBranch(ctx, next) {
-    console.log('123456');
-    const data = await createGitBranch();
-    console.log(data);
+    const branch_name = `branch_${new Date().getTime()}`
+    shell.echo('hello world');
+    shell.exec('git pull');
+    shell.exec(`git checkout -b ${branch_name}`);
+    shell.exec(` git push --set-upstream origin ${branch_name}`);
     ctx.body = {
         mes: '',
         data: '',
