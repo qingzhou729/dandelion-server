@@ -5,7 +5,8 @@ const {getUserInfo} = require('../controllers/getUserInfo');
 const {insertUserInfo} = require('../controllers/insertUserInfo');
 const {login} = require('../controllers/login');
 const {register} = require('../controllers/register');
-const {checkLogin} = require('../controllers/checkLogin');
+const {insertDemand} = require('../controllers/demand/insertDemand');
+const {selectUserDemand} = require('../controllers/demand/selectDemandByUid');
 
 // 加前缀
 router.prefix('/api');
@@ -13,7 +14,10 @@ router.prefix('/api');
 module.exports = () => {
     router.get('/getUserInfo', getUserInfo);
     router.get('/insertUserInfo', insertUserInfo);
-    router.get('/checkLogin', checkLogin);
+    // 新增需求
+    router.get('/insertDemand', insertDemand);
+    // 查找当前用户所有需求
+    router.get('/selectUserDemand', selectUserDemand);
     // 登录
     router.post('/login', login);
     // 注册

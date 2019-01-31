@@ -1,7 +1,7 @@
 /*
  * @Date: 2019-01-30 00:14:00
  * @LastEditors: yuxue.yang
- * @LastEditTime: 2019-01-30 20:09:49
+ * @LastEditTime: 2019-01-30 21:57:28
  */
 
 const UserModel = require('../model/UserModel');
@@ -34,7 +34,6 @@ async function login(ctx, next) {
         success: true,
     };
 };
-
 
 module.exports = {
     login,
