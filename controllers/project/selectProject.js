@@ -9,7 +9,7 @@ const ProjectModel = require('../../model/ProjectModel');
 const projectModel = new ProjectModel();
 // const userModel = new UserModel();
 const shortid = require('js-shortid');	
-const Store = require("../../utils/store.js");
+const Store = require("../../utils/Store.js");
 const redis = new Store();
 
 async function selectProject(ctx, next) {

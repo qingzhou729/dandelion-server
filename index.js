@@ -1,7 +1,7 @@
 const Koa = require('koa');
 const middleware = require('./middleware');
 const session = require("koa-session2");
-const Store = require("./utils/store.js");
+const Store = require("./utils/Store.js");
 const cors = require('koa-cors');
 const body = require('koa-body');
 const app = new Koa();
@@ -18,7 +18,7 @@ app.use(body());
 
 app.use(async (ctx, next) => {
     
-    ctx.set('Access-Control-Allow-Origin', 'http://test.xue.com:3399');
+    ctx.set('Access-Control-Allow-Origin', 'http://test.xue.com');
     ctx.set('Access-Control-Allow-Credentials', true);
     ctx.set('Access-Control-Allow-Headers', 'content-type');
     ctx.set('Access-Control-Allow-Methods', 'OPTIONS, GET, HEAD, PUT, POST, DELETE, PATCH');

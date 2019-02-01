@@ -9,7 +9,7 @@ const DemandModel = require('../../model/DemandModel');
 const demandModel = new DemandModel();
 // const userModel = new UserModel();
 const shortid = require('js-shortid');	
-const Store = require("../../utils/store.js");
+const Store = require("../../utils/Store.js");
 const redis = new Store();
 
 async function selectUserDemand(ctx, next) {
