@@ -18,7 +18,7 @@ app.use(body());
 
 app.use(async (ctx, next) => {
     
-    ctx.set('Access-Control-Allow-Origin', 'http://test.xue.com:1024');
+    ctx.set('Access-Control-Allow-Origin', 'http://test.xue.com:3399');
     ctx.set('Access-Control-Allow-Credentials', true);
     ctx.set('Access-Control-Allow-Headers', 'content-type');
     ctx.set('Access-Control-Allow-Methods', 'OPTIONS, GET, HEAD, PUT, POST, DELETE, PATCH');
