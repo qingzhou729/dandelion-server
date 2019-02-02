@@ -37,19 +37,19 @@ async function deploy(ctx, next) {
     }
 
     // 需要merge的分支
-    // const {branch_name_mer} = ctx.request.query;
-    const branch_name_mer = 'test_me';
+    const {branch_name_mer} = ctx.request.query;
+    // const branch_name_mer = 'test_me';
 
     // 创建集成分支
-    // const branch_name_jc = `branch_${new Date().getTime()}`;
-    const branch_name_jc = 'test_jc';
+    const branch_name_jc = `branch_${new Date().getTime()}`;
+    // const branch_name_jc = 'test_jc';
     console.log('部署')
     // cp.execFile(`../../shell/publish.sh ${branch_name_jc} ${branch_name_mer}`);
     cp.execSync('/Users/yangyuxue/work/study/code-practice/dandelion-server/shell/deploy.sh');
 
     ctx.body = {
         mes: '',
-        data: '',
+        data: '重新打包成功',
         success: true,
     };  
 }
