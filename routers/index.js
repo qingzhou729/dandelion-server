@@ -9,6 +9,7 @@ const {insertDemand} = require('../controllers/demand/insertDemand');
 const {selectUserDemand} = require('../controllers/demand/selectDemandByUid');
 const {createBranch} = require('../controllers/demand/createBranchForDemand');
 const {selectProject} = require('../controllers/project/selectProject');
+const {deploy} = require('../controllers/deploy/deploy');
 
 // 加前缀
 router.prefix('/api');
@@ -26,5 +27,7 @@ module.exports = () => {
     router.post('/login', login);
     // 注册
     router.post('/register', register);
+    // 部署
+    router.get('/deploy', deploy);
     return koaCompose([router.routes(), router.allowedMethods()]);
 }
