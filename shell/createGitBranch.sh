@@ -1,9 +1,8 @@
 #!/bin/bash
-
 git pull
-git checkout -b $1
-git push --set-upstream origin $1
+git checkout -b test_jc
+git push --set-upstream origin test_jc
 
-git merge $2
+git merge test_me
 git push
-npm run build
+
