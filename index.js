@@ -5,8 +5,6 @@ const Store = require("./utils/Store.js");
 const cors = require('koa-cors');
 const body = require('koa-body');
 const app = new Koa();
-const historyApiFallback = require('koa2-connect-history-api-fallback');
-
 
 // session
 app.use(session({
@@ -36,8 +34,6 @@ app.use(async (ctx, next) => {
         await next();
     }
 });
-
-// app.use(historyApiFallback({ whiteList: ['/api'] }));
 
 middleware(app);
 
