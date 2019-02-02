@@ -45,7 +45,7 @@ async function deploy(ctx, next) {
     const branch_name_jc = 'test_jc';
     console.log('部署')
     // cp.execFile(`../../shell/publish.sh ${branch_name_jc} ${branch_name_mer}`);
-    cp.execSync('/Users/yangyuxue/work/study/code-practice/dandelion-server/shell/createGitBranch.sh');
+    cp.execSync('/Users/yangyuxue/work/study/code-practice/dandelion-server/shell/deploy.sh');
 
     ctx.body = {
         mes: '',
