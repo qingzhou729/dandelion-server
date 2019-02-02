@@ -29,6 +29,7 @@
     "mysql": "^2.16.0",
     "node-uuid": "^1.4.8",
     "shelljs": "^0.8.3",
-    "shortid": "^2.2.14"
+    "shortid": "^2.2.14",
+    "koa2-connect-history-api-fallback": "^0.1.1"
   }
 }
