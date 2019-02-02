@@ -16,8 +16,9 @@ app.use(session({
 // 解析 post 参数
 app.use(body());
 
+
 app.use(async (ctx, next) => {
-    
+
     ctx.set('Access-Control-Allow-Origin', 'http://test.xue.com');
     ctx.set('Access-Control-Allow-Credentials', true);
     ctx.set('Access-Control-Allow-Headers', 'content-type');
@@ -34,6 +35,8 @@ app.use(async (ctx, next) => {
         await next();
     }
 });
+
+app.use(historyApiFallback({ whiteList: ['/api'] }));
 
 middleware(app);
 
