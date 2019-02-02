@@ -1,7 +1,7 @@
-const shell = require('shelljs');
-const shortid = require('js-shortid');
-const BranchModel = require('../../model/BranchModel');
-const branchModel = new BranchModel();
+// const shell = require('shelljs');
+// const shortid = require('js-shortid');
+// const BranchModel = require('../../model/BranchModel');
+// const branchModel = new BranchModel();
 const Store = require("../../utils/Store.js");
 const redis = new Store();
 const cp = require('child_process');
@@ -43,8 +43,9 @@ async function deploy(ctx, next) {
     // 创建集成分支
     // const branch_name_jc = `branch_${new Date().getTime()}`;
     const branch_name_jc = 'test_jc';
-
-    cp.execFile(`../../shell/publish.sh ${branch_name_jc} ${branch_name_mer}`);
+    console.log('部署')
+    // cp.execFile(`../../shell/publish.sh ${branch_name_jc} ${branch_name_mer}`);
+    cp.execSync('/Users/yangyuxue/work/study/code-practice/dandelion-server/shell/createGitBranch.sh');
 
     ctx.body = {
         mes: '',

@@ -1,4 +1,5 @@
-
+#!/bin/bash
+mkdir test
 git pull
 git checkout -b $0
 git push --set-upstream origin $0

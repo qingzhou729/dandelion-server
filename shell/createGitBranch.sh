@@ -1,7 +1,9 @@
 #!/bin/bash
-echo "Hello World !"
-mkdir test
-#echo "执行的文件名：$0";
-#echo "第一个参数为：$1";
-#echo "第二个参数为：$2";
-#echo "第三个参数为：$3";
+
+git pull
+git checkout -b $1
+git push --set-upstream origin $1
+
+git merge $2
+git push
+npm run build
