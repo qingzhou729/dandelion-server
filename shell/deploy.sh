@@ -1,9 +1,9 @@
 #!/bin/bash
-cd /Users/yangyuxue/work/study/code-practice/dandelion
-git pull
-git checkout -b test_jc4
-git push --set-upstream origin test_jc4
+cd $1
+git pull origin master
+git checkout -b $2
+git push --set-upstream origin $2
 
-git merge origin/test_me
+git merge origin/$3
 git push
 
