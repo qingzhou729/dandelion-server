@@ -1,7 +1,7 @@
 /*
  * @Date: 2019-02-01 18:06:16
  * @LastEditors: yuxue.yang
- * @LastEditTime: 2019-02-01 18:07:59
+ * @LastEditTime: 2019-02-02 14:30:27
  */
 
 const {query} = require('../common/mysql');
@@ -10,15 +10,15 @@ class UserModel {
     constructor() {}
 
     /**
-     * @description: 创建一个分支
+     * @description: 根据pid和did创建一个分支
      * @param {pid} 项目id
      * @param {did} 需求id
      * @param {branch_name} 分支名
      * @return: 用户信息
      */
-    async insertUserInfoByAccount(account, password, uid) {
-        const sql = 'insert user_info (pid, did, branch_name) values(?,?,?)';
-        const sqlParams = [account, password, uid];
+    async insertBranchInfo(sqlParams) {
+        const sql = 'insert branch_info (pid, bid, branch_name, pub_time) values(?,?,?,?)';
+        console.log(sql)
         let data = await query(sql, sqlParams, (err, result) => {
             return result;
         });
@@ -26,10 +26,17 @@ class UserModel {
     }
 
     /**
-     * 查询所有用户信息
+     * @description: 根据did插入到需求表中对应的需求，关联bid
+     * @param {type} 
+     * @return: 
      */
-    async getUserInfo(params) {
-        const sql = `SELECT uid FROM user_info where ${params.key} = ${params.value}`;
+    async updateDemandBidByDid(bid, did, status) {
+        
+        const sql = 
+            `UPDATE demand_info 
+            SET bid='${bid}', status=${status}
+            WHERE did='${did}'` ;
+        console.log(sql)
         const data = await query(sql);
         return data;
     }

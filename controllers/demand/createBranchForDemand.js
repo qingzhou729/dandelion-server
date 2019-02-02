@@ -1,19 +1,34 @@
 const shell = require('shelljs');
-// const cp = require('child_process');
+const shortid = require('js-shortid');
+const BranchModel = require('../../model/BranchModel');
+const branchModel = new BranchModel();
+const Store = require("../../utils/Store.js");
+const redis = new Store();
 
 async function createBranch(ctx, next) {
 
+    // 检查登录态
     const SESSIONID = ctx.cookies.get('SESSIONID');
 
     if (!SESSIONID) {
         console.log('没有携带SESSIONID，去登录吧~');
-        return false;
+        ctx.body = {
+            mes: '没有携带SESSIONID，去登录吧~',
+            data: '',
+            success: true,
+        };
+        return;
     }
     const redisData = await redis.get(SESSIONID);
 
     if (!redisData) {
         console.log('SESSIONID已经过期，去登录吧~');
-        return false;
+        ctx.body = {
+            mes: 'SESSIONID已经过期，去登录吧~',
+            data: '',
+            success: true,
+        };
+        return;
     }
 
     
@@ -21,19 +36,30 @@ async function createBranch(ctx, next) {
         console.log(`登录了，uid为${redisData.uid}`);
     }
 
-    const {bid, pid} = ctx.request.query;
+    // 生成bid
+    const bid = shortid.gen();
+    const {did, pid, pub_time} = ctx.request.query;
 
-    const branchName = `branch_${new Date().getTime()}`;
+    // 创建分支
+    const branch_name = `branch_${new Date().getTime()}`;
     shell.exec('git pull');
-    shell.exec(`git checkout -b ${branchName}`);
-    shell.exec(` git push --set-upstream origin ${branchName}`);
+    shell.exec(`git checkout -b ${branch_name}`);
+    shell.exec(` git push --set-upstream origin ${branch_name}`);
 
-    
-    ctx.body = {
-        mes: '',
-        data: branchName,
-        success: true,
-    };
+    const sqlParams = [pid, bid, branch_name, pub_time];
+
+    const mes1 =  await branchModel.insertBranchInfo(sqlParams);
+    let mes2 = '';
+    if (mes1) {
+        mes2 = await branchModel.updateDemandBidByDid(bid, did, 2);
+    }
+    if (mes2) {
+        ctx.body = {
+            mes: '',
+            data: branch_name,
+            success: true,
+        };
+    }   
 }
 
 
