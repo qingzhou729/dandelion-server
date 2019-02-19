@@ -90,15 +90,29 @@ async function createBranch(ctx, next) {
         return;
     }
 
+    // 生成bid
+    const bid = shortid.gen();
+    const {did, pid, pub_time} = ctx.request.query;
+
+    // 创建分支
     const branch_name = `branch_${new Date().getTime()}`;
     const path = `/data/dandelion/`;
-    console.log(branch_name)
+
     cp.execSync(`/data/dandelion-server/shell/deploy.sh ${path} ${branch_name}`);
-    ctx.body = {
-        mes: '创建分支成功~',
-        data: branch_name,
-        success: true,
-    };
+
+    const sqlParams = [pid, bid, branch_name, pub_time];
+
+    const mes1 =  await branchModel.insertBranchInfo(sqlParams);
+    let mes2 = '';
+    if (mes1) {
+        if (await branchModel.updateDemandBidByDid(bid, did, 2)) {
+            ctx.body = {
+                mes: '创建分支成功~',
+                data: branch_name,
+                success: true,
+            };
+        }
+    }
 }
 
 module.exports = {
