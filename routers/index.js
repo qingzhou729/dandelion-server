@@ -8,6 +8,7 @@ const {register} = require('../controllers/register');
 const {insertDemand} = require('../controllers/demand/insertDemand');
 const {selectUserDemand} = require('../controllers/demand/selectDemandByUid');
 const {createBranch} = require('../controllers/demand/createBranchForDemand');
+const {stage} = require('../controllers/demand/stage');
 const {selectProject} = require('../controllers/project/selectProject');
 const {deploy} = require('../controllers/deploy/deploy');
 
@@ -29,5 +30,7 @@ module.exports = () => {
     router.post('/register', register);
     // 部署
     router.get('/deploy', deploy);
+    // 预发
+    router.get('/stage', stage);
     return koaCompose([router.routes(), router.allowedMethods()]);
 }
