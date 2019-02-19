@@ -5,4 +5,6 @@ cd $1
 git checkout master
 git pull origin master
 git merge $2
+
+npm install
 npm run build
