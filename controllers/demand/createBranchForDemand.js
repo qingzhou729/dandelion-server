@@ -96,7 +96,7 @@ async function createBranch(ctx, next) {
 
     // 创建分支
     const branch_name = `branch_${new Date().getTime()}`;
-    const path = `/data/dandelion/`;
+    const path = `/project-data/dandelion/`;
 
     cp.execSync(`/data/dandelion-server/shell/deploy.sh ${path} ${branch_name}`);
 
