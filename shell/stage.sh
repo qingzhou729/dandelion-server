@@ -2,6 +2,7 @@
 
 # 进入目标项目
 cd $1
+git checkout $2
 git pull origin $2
 rm -rf node_modules/
 npm install
