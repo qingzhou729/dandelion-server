@@ -12,4 +12,7 @@ echo 'npm install'
 npm install
 echo 'npm run build'
 npm run build
+echo '部署到预发环境'
+\cp -r -a $3 $4
+# \cp -r -a /project-data/dandelion/dist/* /data/dandelion/dist
 
