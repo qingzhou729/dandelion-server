@@ -35,8 +35,8 @@ async function stage(ctx, next) {
     const {branch_name, did} = ctx.request.query;
 
     const path = `/project-data/dandelion/`;
-    const fromDistPath = `/project-data/dandelion/dist/`;
-    const toDistPath = `/data/dandelion/dist/`;
+    const fromDistPath = '/project-data/dandelion/dist/';
+    const toDistPath = '/data/dandelion/dist';
 
     cp.execSync(`/data/dandelion-server/shell/stage.sh ${path} ${branch_name} ${fromDistPath} ${toDistPath}`);
 
