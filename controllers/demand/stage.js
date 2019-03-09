@@ -1,7 +1,7 @@
 const shell = require('shelljs');
 const shortid = require('js-shortid');
-const BranchModel = require('../../model/BranchModel');
-const branchModel = new BranchModel();
+const DemandModel = require('../../model/DemandModel');
+const demandModel = new DemandModel();
 const Store = require("../../utils/Store.js");
 const redis = new Store();
 const cp = require('child_process');
@@ -40,9 +40,9 @@ async function stage(ctx, next) {
 
     cp.execSync(`/data/dandelion-server/shell/stage.sh ${path} ${branch_name} ${fromDistPath} ${toDistPath}`);
 
-    // const fromDistPath = `/Users/yangyuxue/work/study/code-practice/dandelion/dist/`;
-    // const toDistPath = `/Users/yangyuxue/work/study/code-practice/dandelion-server/dist/`;
-    // cp.execSync(`/Users/yangyuxue/work/study/code-practice/dandelion-server/shell/stage.sh ${fromDistPath} ${toDistPath}`);
+    // 预发布环境部署成功之后，修改需求状态为预发验证中
+    const status = 3; // 3 代表预发部署成功，待验证
+    await demandModel.updateDemandStatusByDid(did, status);
 
     ctx.body = {
         mes: '预发布成功~',

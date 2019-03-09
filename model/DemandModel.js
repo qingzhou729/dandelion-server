@@ -1,7 +1,7 @@
 /*
  * @Date: 2019-01-30 22:29:34
  * @LastEditors: yuxue.yang
- * @LastEditTime: 2019-02-19 12:52:07
+ * @LastEditTime: 2019-03-09 22:56:13
  */
 
 const {query} = require('../common/mysql');
@@ -30,7 +30,22 @@ class DemandModel {
      */
     async selectDemandByUid(uid) {
         const sql = `SELECT a.did, a.title, a.demand_desc, a.status, a.bid, b.branch_name from demand_info a LEFT JOIN branch_info b
-on a.bid = b.bid WHERE uid=${uid}`;
+        on a.bid = b.bid WHERE uid=${uid}`;
+        const data = await query(sql);
+        return data;
+    }
+
+    /**
+     * @description: 更新需求状态
+     * @param {String} did
+     * @return: 
+     */
+    async updateDemandStatusByDid(did, status) {
+        const sql = 
+            `UPDATE demand_info 
+            SET status=${status}
+            WHERE did='${did}'` ;
+        console.log(sql)
         const data = await query(sql);
         return data;
     }
