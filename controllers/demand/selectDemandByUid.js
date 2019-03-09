@@ -1,7 +1,7 @@
 /*
  * @Date: 2019-01-31 13:22:54
  * @LastEditors: yuxue.yang
- * @LastEditTime: 2019-01-31 13:31:02
+ * @LastEditTime: 2019-03-09 23:24:31
  */
 
 const DemandModel = require('../../model/DemandModel');
@@ -35,7 +35,8 @@ async function selectUserDemand(ctx, next) {
 
     const uid = JSON.parse(redisData.uid);
     // 获取需求信息
-    const data = await demandModel.selectDemandByUid(uid);
+    const {page} = ctx.request.query;
+    const data = await demandModel.selectDemandByUid(uid, page);
 
     console.log(data);
 

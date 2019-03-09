@@ -1,7 +1,7 @@
 /*
  * @Date: 2019-01-30 22:29:34
  * @LastEditors: yuxue.yang
- * @LastEditTime: 2019-03-09 22:56:13
+ * @LastEditTime: 2019-03-09 23:37:42
  */
 
 const {query} = require('../common/mysql');
@@ -28,9 +28,11 @@ class DemandModel {
      * @param {String} uid
      * @return: 用户的所有需求
      */
-    async selectDemandByUid(uid) {
+    async selectDemandByUid(uid, page) {
+        const pageSize = 10;
+        const start = (page - 1) * pageSize;
         const sql = `SELECT a.did, a.title, a.demand_desc, a.status, a.bid, b.branch_name from demand_info a LEFT JOIN branch_info b
-        on a.bid = b.bid WHERE uid=${uid}`;
+        on a.bid = b.bid WHERE uid=${uid} limit ${start}, ${pageSize};`;
         const data = await query(sql);
         return data;
     }
