@@ -13,6 +13,9 @@ npm install
 echo 'npm run build'
 npm run build
 echo '部署到预发环境'
-cp -r -f $3 $4
+# cp -r -f $3 $4
 # \cp -r -a /project-data/dandelion/dist/* /data/dandelion/dist
+
+cp -R -f $3 $4
+
 
