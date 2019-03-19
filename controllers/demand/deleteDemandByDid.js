@@ -1,20 +1,21 @@
 /*
- * @Date: 2019-01-31 13:22:54
  * @LastEditors: yuxue.yang
- * @LastEditTime: 2019-03-15 17:43:31
+ * @Date: 2019-03-19 19:09:55
+ * @LastEditTime: 2019-03-19 19:22:16
  */
 
 const DemandModel = require('../../model/DemandModel');
-// const UserModel = require('../model/UserModel');
 const demandModel = new DemandModel();
-// const userModel = new UserModel();
-const shortid = require('js-shortid');	
 const Store = require("../../utils/Store.js");
 const redis = new Store();
 
-async function selectUserDemand(ctx, next) {
+/**
+ * @description: 新增需求
+ * @param {type} 
+ * @return: 
+ */
+async function deleteDemand(ctx, next) {
 
-    // 判断用户是否登录
     const SESSIONID = ctx.cookies.get('SESSIONID');
 
     if (!SESSIONID) {
@@ -32,20 +33,20 @@ async function selectUserDemand(ctx, next) {
     if (redisData && redisData.uid) {
         console.log(`登录了，uid为${redisData.uid}`);
     }
-
-    const uid = JSON.parse(redisData.uid);
     // 获取需求信息
-    const {page} = ctx.request.query;
-    const data = await demandModel.selectDemandByUid(uid, page);
-    const count = await demandModel.selectDemandCount();
+    const {did} = ctx.request.query;
+    console.log('did', did)
+    const data = await demandModel.deleteDemandByDid(did);
+
+    console.log(data);
+
     ctx.body = {
-        mes: '',
-        data,
-        count: count[0][`count(*)`],
+        mes: '删除成功~',
+        data: '',
         success: true,
     };
 };
 
 module.exports = {
-    selectUserDemand,
+    deleteDemand,
 };

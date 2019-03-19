@@ -6,6 +6,8 @@ const {insertUserInfo} = require('../controllers/insertUserInfo');
 const {login} = require('../controllers/login');
 const {register} = require('../controllers/register');
 const {insertDemand} = require('../controllers/demand/insertDemand');
+const {deleteDemand} = require('../controllers/demand/deleteDemandByDid');
+const {updateDemand} = require('../controllers/demand/updateDemandByDid');
 const {selectUserDemand} = require('../controllers/demand/selectDemandByUid');
 const {createBranch} = require('../controllers/demand/createBranchForDemand');
 const {stage} = require('../controllers/demand/stage');
@@ -20,6 +22,10 @@ module.exports = () => {
     router.get('/insertUserInfo', insertUserInfo);
     // 新增需求
     router.get('/insertDemand', insertDemand);
+    // 删除需求
+    router.get('/deleteDemand', deleteDemand);
+    // 修改需求
+    router.get('/updateDemand', updateDemand);
     // 查找当前用户所有需求
     router.get('/selectUserDemand', selectUserDemand);
     router.get('/createBranch', createBranch);
