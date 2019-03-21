@@ -1,4 +1,4 @@
-const Store = require("../utils/Store.js");
+const Store = require("../../utils/Store");
 const redis = new Store();
 module.exports = () => {
     return async (ctx, next) => {

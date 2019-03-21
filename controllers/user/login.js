@@ -1,10 +1,9 @@
 /*
  * @Date: 2019-01-30 00:14:00
  * @LastEditors: yuxue.yang
- * @LastEditTime: 2019-01-30 21:57:28
+ * @LastEditTime: 2019-03-21 13:25:42
  */
-
-const UserModel = require('../model/UserModel');
+const UserModel = require('../../model/UserModel');
 const userModel = new UserModel();
 
 /**

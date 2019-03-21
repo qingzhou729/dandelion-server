@@ -1,10 +1,12 @@
 const Router = require('koa-router');
 const router = new Router();
 const koaCompose = require('koa-compose');
-const {getUserInfo} = require('../controllers/getUserInfo');
-const {insertUserInfo} = require('../controllers/insertUserInfo');
-const {login} = require('../controllers/login');
-const {register} = require('../controllers/register');
+
+// 接口入口
+const {getUserInfo} = require('../controllers/user/getUserInfo');
+const {insertUserInfo} = require('../controllers/user/insertUserInfo');
+const {login} = require('../controllers/user/login');
+const {register} = require('../controllers/user/register');
 const {insertDemand} = require('../controllers/demand/insertDemand');
 const {deleteDemand} = require('../controllers/demand/deleteDemandByDid');
 const {updateDemand} = require('../controllers/demand/updateDemandByDid');

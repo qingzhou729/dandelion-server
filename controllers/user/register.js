@@ -1,10 +1,10 @@
 /*
  * @Date: 2019-01-30 20:42:03
  * @LastEditors: yuxue.yang
- * @LastEditTime: 2019-01-30 21:09:55
+ * @LastEditTime: 2019-03-21 13:25:37
  */
 
-const UserModel = require('../model/UserModel');
+const UserModel = require('../../model/UserModel');
 const userModel = new UserModel();
 const shortid = require('js-shortid');	
  

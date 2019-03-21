@@ -1,4 +1,4 @@
-const UserModel = require('../model/UserModel');
+const UserModel = require('../../model/UserModel');
 const userModel = new UserModel();
 
 async function insertUserInfo(ctx, next) {
