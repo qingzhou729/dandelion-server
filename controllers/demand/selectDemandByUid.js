@@ -1,7 +1,7 @@
 /*
  * @Date: 2019-01-31 13:22:54
  * @LastEditors: yuxue.yang
- * @LastEditTime: 2019-03-21 13:14:30
+ * @LastEditTime: 2019-03-23 09:23:39
  */
 
 const DemandModel = require('../../model/DemandModel');
@@ -15,8 +15,9 @@ async function selectUserDemand(ctx, next) {
     const redisData = await redis.get(SESSIONID);
     const uid = JSON.parse(redisData.uid);
     // 获取需求信息
-    const {page} = ctx.request.query;
-    const data = await demandModel.selectDemandByUid(uid, page);
+    const {page, status} = ctx.request.query;
+    console.log(`status`,status)
+    const data = await demandModel.selectDemandByUid(uid, page, status);
     const count = await demandModel.selectDemandCount();
     ctx.body = {
         mes: '',
