@@ -13,7 +13,7 @@ async function createBranch(ctx, next) {
     const branch_name = `branch_${new Date().getTime()}`;
     const path = `/project-data/dandelion/`;
 
-    cp.execSync(`/data/dandelion-server/shell/deploy.sh ${path} ${branch_name}`);
+    cp.execSync(`/data/dandelion-server/shell/createBranch.sh ${path} ${branch_name}`);
 
     const sqlParams = [pid, bid, branch_name, pub_time];
 

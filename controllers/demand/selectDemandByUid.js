@@ -1,7 +1,7 @@
 /*
  * @Date: 2019-01-31 13:22:54
  * @LastEditors: yuxue.yang
- * @LastEditTime: 2019-03-23 09:23:39
+ * @LastEditTime: 2019-03-24 15:19:58
  */
 
 const DemandModel = require('../../model/DemandModel');
@@ -18,7 +18,7 @@ async function selectUserDemand(ctx, next) {
     const {page, status} = ctx.request.query;
     console.log(`status`,status)
     const data = await demandModel.selectDemandByUid(uid, page, status);
-    const count = await demandModel.selectDemandCount();
+    const count = await demandModel.selectDemandCount(status);
     ctx.body = {
         mes: '',
         data,

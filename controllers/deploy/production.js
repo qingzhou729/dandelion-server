@@ -11,7 +11,7 @@ async function production(ctx, next) {
     cp.execSync(`/data/dandelion-server/shell/production.sh ${fromDistPath} ${toDistPath}`);
 
     // 预发布环境部署成功之后，修改需求状态为预发验证中
-    const status = 5; // 4 生产环境，待验证
+    const status = 5; // 5 生产环境，待验证
     await demandModel.updateDemandStatusByDid(did, status);
 
     ctx.body = {
