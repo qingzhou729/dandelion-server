@@ -1,7 +1,7 @@
 /*
  * @LastEditors: yuxue.yang
  * @Date: 2019-03-09 20:22:39
- * @LastEditTime: 2019-03-24 15:21:16
+ * @LastEditTime: 2019-03-24 17:08:28
  */
 
 const {query} = require('../common/mysql');
@@ -34,7 +34,7 @@ class DemandModel {
         const pageSize = 10;
         const start = (page - 1) * pageSize;
         const sql = 
-            `SELECT a.did, a.title, a.demand_desc, a.status, a.bid, a.create_time, b.branch_name, c.project_name from demand_info a LEFT JOIN branch_info b
+            `SELECT a.did, a.title, a.demand_desc, a.status, a.bid, a.create_time, b.branch_name, c.project_name, c.pid from demand_info a LEFT JOIN branch_info b
         on a.bid = b.bid LEFT JOIN project_info c on b.pid = c.pid WHERE uid='${uid}' ${status ? `and status in (${status})` : ''} limit ${start}, ${pageSize};`;
         const data = await query(sql);
         return data;
