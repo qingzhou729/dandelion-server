@@ -13,6 +13,8 @@ const {updateDemand} = require('../controllers/demand/updateDemandByDid');
 const {selectUserDemand} = require('../controllers/demand/selectDemandByUid');
 const {createBranch} = require('../controllers/demand/createBranchForDemand');
 const {stage} = require('../controllers/demand/stage');
+const {pretest} = require('../controllers/deploy/pretest'); // 预发环境部署
+const {production} = require('../controllers/deploy/production'); // 生产环境部署
 const {selectProject} = require('../controllers/project/selectProject');
 const {deploy} = require('../controllers/deploy/deploy');
 
@@ -40,5 +42,8 @@ module.exports = () => {
     router.get('/deploy', deploy);
     // 预发
     router.get('/stage', stage);
+    router.get('/pretest', pretest);
+    // 生产环境
+    router.get('/production', production);
     return koaCompose([router.routes(), router.allowedMethods()]);
 }
