@@ -9,7 +9,7 @@ async function mergeToMaster(ctx, next) {
     cp.execSync(`/data/dandelion-server/shell/mergeToMaster.sh ${path} ${branch_name}`);
 
     // 预发布环境部署成功之后，修改需求状态为预发验证中
-    const status = 3; // 3 代表预发部署成功，待验证
+    const status = 7; // 5 已经合并主干
     await demandModel.updateDemandStatusByDid(did, status);
 
     ctx.body = {
