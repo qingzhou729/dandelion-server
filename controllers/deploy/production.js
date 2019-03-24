@@ -4,6 +4,7 @@ const cp = require('child_process');
 
 // 上预发布环境
 async function production(ctx, next) {
+    const {did} = ctx.request.query;
     const fromDistPath = '/project-data/dandelion/dist/';
     const toDistPath = '/data/dandelion/dist';
 
