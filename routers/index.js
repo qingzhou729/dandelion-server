@@ -15,6 +15,7 @@ const {createBranch} = require('../controllers/demand/createBranchForDemand');
 const {stage} = require('../controllers/demand/stage');
 const {pretest} = require('../controllers/deploy/pretest'); // 预发环境部署
 const {production} = require('../controllers/deploy/production'); // 生产环境部署
+const {mergeToMaster} = require('../controllers/deploy/mergeToMaster'); // 合并到主干
 const {selectProject} = require('../controllers/project/selectProject');
 const {deploy} = require('../controllers/deploy/deploy');
 
@@ -45,5 +46,6 @@ module.exports = () => {
     router.get('/pretest', pretest);
     // 生产环境
     router.get('/production', production);
+    router.get('/mergeToMaster', mergeToMaster);
     return koaCompose([router.routes(), router.allowedMethods()]);
 }
