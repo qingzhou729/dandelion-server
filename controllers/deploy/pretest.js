@@ -11,7 +11,6 @@ async function pretest(ctx, next) {
     let fromDistPath = '';
     let toDistPath = '';
     const data = await projectModel.selectProjectInfo(pid);
-    let path = '';
     if (data.length) {
         // 获取项目路径
         path = `/data/project/${data[0].project_dir}/`;
