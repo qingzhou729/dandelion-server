@@ -1,13 +1,11 @@
 /*
  * @LastEditors: yuxue.yang
  * @Date: 2019-03-24 14:07:57
- * @LastEditTime: 2019-03-24 14:15:50
+ * @LastEditTime: 2019-03-24 14:18:22
  */
 const DemandModel = require('../../model/DemandModel');
 const demandModel = new DemandModel();
-const cp = require('child_process');
 
-// 上预发布环境
 async function updateDemandStatus(ctx, next) {
     const {status, did} = ctx.request.query;
     /* status 
