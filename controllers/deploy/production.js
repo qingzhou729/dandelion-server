@@ -12,7 +12,7 @@ async function production(ctx, next) {
     let toDistPath = '';
     if (data.length) {
         // 获取项目路径
-        fromDistPath = `/data/project/${data[0].project_dir}/dist/`;
+        fromDistPath = `/data/project/${data[0].project_dir}/${data[0].deploy_dir}/`;
         toDistPath = `/data/pro-dir/${data[0].project_prodir}`;
     } else {
         ctx.body = {

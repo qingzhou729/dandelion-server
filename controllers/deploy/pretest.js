@@ -14,7 +14,7 @@ async function pretest(ctx, next) {
     if (data.length) {
         // 获取项目路径
         path = `/data/project/${data[0].project_dir}/`;
-        fromDistPath = `/data/project/${data[0].project_dir}/dist/`;
+        fromDistPath = `/data/project/${data[0].project_dir}/${data[0].deploy_dir}/`;
         toDistPath = `/data/pre-dir/${data[0].project_predir}`;
     } else {
         ctx.body = {
