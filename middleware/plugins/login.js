@@ -11,9 +11,8 @@ module.exports = () => {
         if (!SESSIONID) {
             return ctx.body = {
                 mes: '没有携带SESSIONID~',
-                data: {
-                    err_code: 1,
-                },
+                data: '',
+                err_code: 1,
                 success: false,
             };
         }
@@ -22,9 +21,8 @@ module.exports = () => {
         if (!redisData) {
             return ctx.body = {
                 mes: 'SESSIONID已经过期~',
-                data: {
-                    err_code: 1,
-                },
+                data: '',
+                err_code: 1,
                 success: false,
             };
         }
