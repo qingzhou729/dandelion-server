@@ -11,8 +11,7 @@ echo '删除node_modules'
 rm -rf node_modules/
 echo 'npm install'
 npm install
-echo 'npm run build'
-npm run build
 echo '部署到预发环境'
 rm -rf $4
 cp -rf $3 $4
+npm run build

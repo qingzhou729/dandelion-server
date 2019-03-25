@@ -23,7 +23,7 @@ async function pretest(ctx, next) {
             success: false,
         };
     }
-    cp.execSync(`/data/dandelion-server/shell/pretest.sh ${path} ${branch_name} ${fromDistPath} ${toDistPath}`);
+    cp.execSync(`${path}shell/pretest.sh ${path} ${branch_name} ${fromDistPath} ${toDistPath}`);
 
     // 预发布环境部署成功之后，修改需求状态为预发验证中
     const status = 3; // 3 代表预发部署成功，待验证
