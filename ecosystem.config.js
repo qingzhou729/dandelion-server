@@ -2,7 +2,7 @@ module.exports = {
     apps:[{ 
         name: 'dandelion-server-dev',
         args: 'one two',
-        script:'/Users/yangyuxue/work/study/code-practice/dandelion-server/index.js',
+        script:'/data/project/dandelion-server/index.js',
         instances: 1,
         out_file: null,
         error_file: null,
