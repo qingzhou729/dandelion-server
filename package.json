@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/yukiyang0729/dandelion-server#readme",
   "dependencies": {
+    "content-disposition": "^0.5.3",
     "ioredis": "^4.5.1",
     "js-shortid": "^0.1.1",
     "koa": "^2.6.2",
@@ -27,10 +28,10 @@
     "koa-session": "^5.10.1",
     "koa-session2": "^2.2.8",
     "koa2": "^2.0.0-alpha.7",
+    "koa2-connect-history-api-fallback": "^0.1.1",
     "mysql": "^2.16.0",
     "node-uuid": "^1.4.8",
     "shelljs": "^0.8.3",
-    "shortid": "^2.2.14",
-    "koa2-connect-history-api-fallback": "^0.1.1"
+    "shortid": "^2.2.14"
   }
 }
