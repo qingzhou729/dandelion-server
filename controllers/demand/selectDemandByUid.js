@@ -1,7 +1,7 @@
 /*
  * @Date: 2019-01-31 13:22:54
  * @LastEditors: yuxue.yang
- * @LastEditTime: 2019-03-24 15:19:58
+ * @LastEditTime: 2019-03-28 13:22:27
  */
 
 const DemandModel = require('../../model/DemandModel');
@@ -24,6 +24,7 @@ async function selectUserDemand(ctx, next) {
         data,
         count: count[0][`count(*)`],
         success: true,
+        test: '预发测试代码',
     };
 };
 
