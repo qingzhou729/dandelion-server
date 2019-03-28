@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo '进入目标项目'
-cd $1
+echo '进入预发项目'
+cd $3
 echo '切换到开发分支'
 git checkout $2
 git pull origin master
@@ -11,7 +11,4 @@ echo '删除node_modules'
 rm -rf node_modules/
 echo 'npm install'
 npm install
-echo '部署到预发环境'
-rm -rf $4
-cp -rf $3 $4
 npm run build
