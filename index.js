@@ -18,6 +18,7 @@ middleware(app);
 
 // 端口选择
 let PORT = 3001;
+console.log(__dirname)
 if (__dirname.indexOf('pre-dir') > 0) {
     PORT = 3002;
     console.log('预发环境');
