@@ -10,3 +10,9 @@
 
 ## 运行
 - 环境搭建好后 执行`pm2 start index.js`即可
+- 修改hosts 指向服务器IP或本地
+```
+127.0.0.1 test.xue.com
+127.0.0.1 api.xue.com
+127.0.0.1 m.xue.com
+```
