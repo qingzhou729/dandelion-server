@@ -8,3 +8,5 @@
 - Mysql 数据库（表设计见issue）
 - Pm2 用于管理Node进程
 
+## 运行
+- 环境搭建好后 执行`pm2 start index.js`即可
