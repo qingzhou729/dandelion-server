@@ -3,8 +3,8 @@
 
 ## 环境配置
 - 一台服务器（可选）
-- Nignx
-- Redis
-- Mysql
-- Pm2
+- Nignx 启动服务
+- Redis 缓存用户登录态
+- Mysql 数据库（表设计见issue）
+- Pm2 用于管理Node进程
 
